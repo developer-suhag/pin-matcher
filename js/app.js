@@ -1,3 +1,4 @@
+// generate pin
 function getPin() {
     const pin = Math.round(Math.random() * 10000);
     const pinString = pin + '';
@@ -29,4 +30,20 @@ document.getElementById('key-pad').addEventListener('click', function (event) {
         typedNumber.value = currentNumber;
     }
 
-})
+});
+
+function verifyPin() {
+    const generatePin = document.getElementById('pin-output').value;
+    const typedNumber = document.getElementById('typed-number').value;
+    // notify
+    const successMessage = document.getElementById('notify-success');
+    const failedError = document.getElementById('notify-failed');
+
+    if (generatePin == typedNumber) {
+        successMessage.style.display = 'block';
+        failedError.style.display = 'none'
+    } else {
+        failedError.style.display = 'block'
+        successMessage.style.display = 'none';
+    }
+};
