@@ -38,12 +38,27 @@ function verifyPin() {
     // notify
     const successMessage = document.getElementById('notify-success');
     const failedError = document.getElementById('notify-failed');
+    // acction try left 
+    const actionLeft = document.getElementById('action-left');
+    let action = document.getElementById('action-number');
+    const actionNumber = parseInt(action.innerText)
+
 
     if (generatePin == typedNumber) {
         successMessage.style.display = 'block';
         failedError.style.display = 'none'
+        actionLeft.style.display = 'none';
     } else {
-        failedError.style.display = 'block'
+        failedError.style.display = 'block';
         successMessage.style.display = 'none';
+        actionLeft.style.display = 'block';
+
+        if (actionNumber > 0) {
+            action.innerText = actionNumber - 1;
+
+        }
+        if (actionNumber == 1) {
+            document.getElementById('submit-btn').setAttribute('disabled', true)
+        }
     }
 };
