@@ -24,6 +24,10 @@ document.getElementById('key-pad').addEventListener('click', function (event) {
         if (number == 'C') {
             typedNumber.value = '';
         }
+        if (number == '<') {
+            // back space 
+            typedNumber.value = typedNumber.value.slice(0, -1)
+        }
     } else {
         const prviousNumber = typedNumber.value;
         const currentNumber = prviousNumber + number;
